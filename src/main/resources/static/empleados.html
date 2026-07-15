@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administrar empleados | Telecom Inventario</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <button id="btnHamburger" class="hamburger" aria-label="Abrir menu"><span></span></button>
+    <div class="brand">
+      <strong>Telecom Inventario</strong>
+      <small>Gestion de almacen</small>
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="topbar-user">
+      <span id="usuarioNombre">-</span>
+      <small id="usuarioRol">-</small>
+    </div>
+    <div class="topbar-page">Empleados</div>
+  </header>
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <nav class="drawer" id="drawer">
+    <div class="drawer-head">
+      <strong>Menu</strong>
+      <button class="drawer-close" id="drawerClose" aria-label="Cerrar menu">&times;</button>
+    </div>
+    <div class="drawer-nav">
+      <span class="section-label">General</span>
+      <a href="index.html">Inventario</a>
+      <span class="section-label">Configuracion</span>
+      <a href="ajustes.html">Ajustes &mdash; Proveedores y tipos</a>
+      <a href="historial.html">Historial de movimientos</a>
+      <a href="empleados.html" id="linkAdminEmpleados" class="active hidden">Administrar empleados</a>
+    </div>
+    <div class="drawer-nav" style="margin-top:auto;">
+      <button id="btnCerrarSesion" class="btn btn-ghost" style="justify-content:flex-start; color:#DADBDF;">Cerrar sesión</button>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="page-head">
+      <div>
+        <h1>Administrar empleados</h1>
+        <p>Cuentas registradas en el sistema: Administradores y Encargados de almacén.</p>
+      </div>
+    </div>
+
+    <section class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Usuario</th>
+              <th>Correo</th>
+              <th>DNI</th>
+              <th>Celular</th>
+              <th>Rol</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tablaEmpleados"></tbody>
+        </table>
+        <div class="empty-state hidden" id="estadoVacioEmpleados">No hay cuentas registradas.</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal: editar empleado -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-head">
+        <h3>Editar cuenta</h3>
+        <button class="btn-ghost btn-icon" id="modalClose" aria-label="Cerrar">&times;</button>
+      </div>
+      <form id="formEmpleado">
+        <div class="modal-body">
+          <input type="hidden" id="empleadoId">
+
+          <div class="field">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" required>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="correo">Correo</label>
+              <input type="email" id="correo" required>
+            </div>
+            <div class="field">
+              <label for="dni">DNI</label>
+              <input type="text" id="dni" required>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="celular">Celular</label>
+              <input type="text" id="celular" required>
+            </div>
+            <div class="field">
+              <label for="username">Usuario</label>
+              <input type="text" id="username" required>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="rol">Rol</label>
+              <select id="rol" required>
+                <option value="ENCARGADO">Encargado de almacen</option>
+                <option value="ADMIN">Administrador</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="password">Nueva contraseña (opcional)</label>
+              <input type="password" id="password" placeholder="Dejar en blanco para no cambiarla">
+            </div>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn" id="btnCancelar">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+  <script src="js/empleados.js"></script>
+</body>
+</html>

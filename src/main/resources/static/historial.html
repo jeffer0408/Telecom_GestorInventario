@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historial | Sistema de Telecomunicaciones</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <button id="btnHamburger" class="hamburger" aria-label="Abrir menu"><span></span></button>
+    <div class="brand">
+      <strong>Telecom Inventario</strong>
+      <small>Gestion de almacen</small>
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="topbar-user">
+      <span id="usuarioNombre">-</span>
+      <small id="usuarioRol">-</small>
+    </div>
+    <div class="topbar-page">Historial</div>
+  </header>
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <nav class="drawer" id="drawer">
+    <div class="drawer-head">
+      <strong>Menu</strong>
+      <button class="drawer-close" id="drawerClose" aria-label="Cerrar menu">&times;</button>
+    </div>
+    <div class="drawer-nav">
+      <span class="section-label">General</span>
+      <a href="index.html">Inventario</a>
+      <span class="section-label">Configuracion</span>
+      <a href="ajustes.html">Ajustes &mdash; Proveedores y tipos</a>
+      <a href="historial.html" class="active">Historial de movimientos</a>
+      <a href="empleados.html" id="linkAdminEmpleados" class="hidden">Administrar empleados</a>
+    </div>
+    <div class="drawer-nav" style="margin-top:auto;">
+      <button id="btnCerrarSesion" class="btn btn-ghost" style="justify-content:flex-start; color:#DADBDF;">Cerrar sesión</button>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="page-head">
+      <div>
+        <h1>Historial de movimientos</h1>
+        <p>Registro de altas, ediciones y bajas realizadas en el inventario.</p>
+      </div>
+    </div>
+
+    <section class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Movimiento</th>
+              <th>Producto</th>
+              <th class="num">Cantidad</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody id="tablaHistorial"></tbody>
+        </table>
+        <div class="empty-state hidden" id="estadoVacioHistorial">Todavia no se registraron movimientos.</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+  <script src="js/historial.js"></script>
+</body>
+</html>

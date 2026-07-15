@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajustes | Sistema de Telecomunicaciones</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <button id="btnHamburger" class="hamburger" aria-label="Abrir menu"><span></span></button>
+    <div class="brand">
+      <strong>Telecom Inventario</strong>
+      <small>Gestion de almacen</small>
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="topbar-user">
+      <span id="usuarioNombre">-</span>
+      <small id="usuarioRol">-</small>
+    </div>
+    <div class="topbar-page">Ajustes</div>
+  </header>
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <nav class="drawer" id="drawer">
+    <div class="drawer-head">
+      <strong>Menu</strong>
+      <button class="drawer-close" id="drawerClose" aria-label="Cerrar menu">&times;</button>
+    </div>
+    <div class="drawer-nav">
+      <span class="section-label">General</span>
+      <a href="index.html">Inventario</a>
+      <span class="section-label">Configuracion</span>
+      <a href="ajustes.html" class="active">Ajustes &mdash; Proveedores y tipos</a>
+      <a href="historial.html">Historial de movimientos</a>
+      <a href="empleados.html" id="linkAdminEmpleados" class="hidden">Administrar empleados</a>
+    </div>
+    <div class="drawer-nav" style="margin-top:auto;">
+      <button id="btnCerrarSesion" class="btn btn-ghost" style="justify-content:flex-start; color:#DADBDF;">Cerrar sesión</button>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="page-head">
+      <div>
+        <h1>Ajustes</h1>
+        <p>Administra los proveedores y los tipos de almacen usados en el inventario.</p>
+      </div>
+    </div>
+
+    <div class="settings-grid">
+
+      <!-- Proveedores -->
+      <section class="card">
+        <div class="settings-card-head">
+          <h2>Proveedores</h2>
+          <p>Empresas que suministran los productos.</p>
+        </div>
+        <form class="add-row" id="formProveedor">
+          <input type="text" id="nuevoProveedor" placeholder="Nombre del proveedor" required>
+          <button type="submit" class="btn btn-primary btn-sm">Agregar</button>
+        </form>
+        <ul class="simple-list" id="listaProveedores"></ul>
+      </section>
+
+      <!-- Tipos de almacen -->
+      <section class="card">
+        <div class="settings-card-head">
+          <h2>Tipos de almacen</h2>
+          <p>Formas de almacenar un producto: bolsa, unidad, caja, metro, cm, etc.</p>
+        </div>
+        <form class="add-row" id="formTipo">
+          <input type="text" id="nuevoTipo" placeholder="Nombre del tipo de almacen" required>
+          <button type="submit" class="btn btn-primary btn-sm">Agregar</button>
+        </form>
+        <ul class="simple-list" id="listaTipos"></ul>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+  <script src="js/ajustes.js"></script>
+</body>
+</html>
